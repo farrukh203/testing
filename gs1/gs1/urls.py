@@ -21,11 +21,6 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    path('studentinfo/<int:pk>', views.student_detail.as_view()),
-    path('studentinfo/', views.student_list.as_view()),
-=======
-    path('studentinfo2/<int:pk>', views.student_detail.as_view()),
-    path('studentinfo2/', views.student_list.as_view()),
->>>>>>> change-url
+    path('studentinfo1/<int:pk>', views.student_detail.as_view()),
+    path('studentinfo1/', views.student_list.as_view()),
 ]
