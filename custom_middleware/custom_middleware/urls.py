@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.my_view),
     path('exception/', views.exception_view),
-    path('studentinfo/', views.student_info)
+    path('studentinfo/', views.student_info),
+    path('studentdetail/', views.student_detail)
 ]
