@@ -1,4 +1,4 @@
-# testing
+
 This directory show three different project
 1. gs1
 2. custom_middleware
@@ -45,4 +45,3 @@ project custom_admin (app_name my_app):
     change admin site title using admin.site.index_title in admin.py file.
     Create classes StudentAdmin, CourseAdmin and GradeAdmin subclass of admin.ModelAdmin
     in admin.py file
-    
