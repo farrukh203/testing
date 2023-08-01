@@ -20,3 +20,6 @@ class student_detail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StudentSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        pass

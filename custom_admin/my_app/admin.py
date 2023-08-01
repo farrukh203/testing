@@ -7,22 +7,29 @@ from django.utils.html import format_html, mark_safe
 admin.site.site_header = 'Admin Panel'
 admin.site.index_title = 'Customization App'
 
+#admin.ModelAdmin.actions_on_bottom = True
+#admin.ModelAdmin.actions_on_top = False
+#admin.ModelAdmin.actions_selection_counter = False
+
 # Register your models here.
 @admin.register(Students)
 class StudentAdmin(admin.ModelAdmin):
-    fieldsets = (
-        ('Personal Information', {
-            'fields':('first_name', 'last_name', 'age', 'gender', 'address',
-                      'profile_image')
-        }),
-        ('Education', {
-            'fields':('standard', 'course')
-        }),
-        ('Parent Detail', {
-            'fields':('father_name', 'parent_contact_number')
-        })
-    )
-    list_display = ['first_name', 'last_name', 'gender', 'standard', 'average_show', 'stud_profile_pic']
+    #fieldsets = (
+        #('Personal Information', {
+        #    'fields': ('first_name', 'last_name', 'age', 'gender', 'address',
+        #               'profile_image')
+        #}),
+        #('Education', {
+        #    'fields': ('standard', 'course')
+        #}),
+        #('Parent Detail', {
+        #    'fields': ('father_name', 'parent_contact_number')
+        #})
+    #)
+    #list_display = ['first_name', 'last_name', 'gender', 'standard', 'average_show', 'stud_profile_pic']
+    #exclude = ['first_name']
+    #fields = [("first_name", "gender"), ("last_name", "standard")]
+    #readonly_fields = ['first_name']
     search_fields = ("first_name__startswith",)
 
     def stud_profile_pic(self, obj):
