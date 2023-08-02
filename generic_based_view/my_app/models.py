@@ -26,12 +26,12 @@ class Students(models.Model):
     father_name = models.CharField(max_length=100)
     parent_contact_number = models.BigIntegerField()
 
-    profile_image = models.ImageField(upload_to='media/profile/', blank=True)
+    profile_image = models.ImageField(upload_to='my_app/media/profile/', blank=True)
 
     class Meta:
         verbose_name = "Student Detail"
         verbose_name_plural = "Student Details"
-        #ordering = ("last_name", "first_name")
+        ordering = ("last_name", "first_name")
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
@@ -49,6 +49,7 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.name}, {self.year}"
+
 
 class Grade(models.Model):
     student = models.ForeignKey(Students, on_delete=models.CASCADE, default='')

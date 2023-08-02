@@ -46,7 +46,6 @@ class StudentAdmin(admin.ModelAdmin):
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    pass
     list_display = ['name', 'year', 'view_student_link']
     list_filter = ("year",)
 
