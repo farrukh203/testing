@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+import datetime
 
 # Create your models here.
 GENDER = [
@@ -16,7 +17,8 @@ class Students(models.Model):
     """
     first_name = models.CharField(max_length=100, default='')
     last_name = models.CharField(max_length=100, default='')
-    age = models.IntegerField()
+    age = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(100)])
     gender = models.CharField(max_length=20, choices=GENDER)
     address = models.CharField(max_length=100)
 
@@ -27,6 +29,8 @@ class Students(models.Model):
     parent_contact_number = models.BigIntegerField()
 
     profile_image = models.ImageField(upload_to='my_app/media/profile/', blank=True)
+    stu_created_at = models.DateTimeField(default=datetime.datetime.now())
+    stu_updated_at = models.DateTimeField(default=datetime.datetime.now())
 
     class Meta:
         verbose_name = "Student Detail"
@@ -35,6 +39,10 @@ class Students(models.Model):
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
+
+    def save(self, *args, **kwargs):
+        self.stu_updated_at = datetime.datetime.now()
+        super(Students, self).save(*args, **kwargs)
 
 
 class Course(models.Model):

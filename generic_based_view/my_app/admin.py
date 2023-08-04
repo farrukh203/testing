@@ -23,6 +23,7 @@ class StudentAdmin(admin.ModelAdmin):
             'fields': ('father_name', 'parent_contact_number')
         })
     )
+    # readonly_fields = ['stu_created_at', 'stu_updated_at']
 
 
 class CourseAdmin(admin.ModelAdmin):

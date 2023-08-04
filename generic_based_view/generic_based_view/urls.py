@@ -20,9 +20,12 @@ from my_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('student_detail/', views.StudentList.as_view()),
+    path('student_list/', views.StudentList.as_view()),
     path('student_create/', views.StudentCreate.as_view()),
-    path('student_detail/<int:pk>', views.StudentRetrieve.as_view()),
+    path('student_retrieve/<int:pk>', views.StudentRetrieve.as_view()),
     path('student_update/<int:pk>', views.StudentUpdate.as_view()),
-    path('student_delete/<int:pk>', views.StudentDelete.as_view())
+    path('student_delete/<int:pk>', views.StudentDelete.as_view()),
+    #path('student_delete/<int:pk>', views.StudentDelete.as_view()),
+    path('student_api/', views.StudentAPI.as_view()),
+    path('student_api/<int:pk>', views.StudentAPI.as_view())
 ]
