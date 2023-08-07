@@ -100,6 +100,7 @@ class StudentUpdate(generics.UpdateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def patch(self, request, *args, **kwargs):
+        print(request.stream)
         stu = Students.objects.get(id=kwargs['pk'])
         # request.data['stu_updated_at'] = datetime.now()
         # data = request.data
