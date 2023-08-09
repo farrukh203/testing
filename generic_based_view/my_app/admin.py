@@ -31,4 +31,6 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 class GradeAdmin(admin.ModelAdmin):
-    list_display = ['student', 'grade', 'course']
+    pass
+
+
