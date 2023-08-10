@@ -42,3 +42,29 @@ class Supplier(Place):
         Place,
         related_name="%(app_label)s_%(class)s_related"
     )
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=50)
+    age = models.PositiveIntegerField(null=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Group(models.Model):
+    group_name = models.CharField(max_length=100)
+    members = models.ManyToManyField(Person, through="Membership")
+
+    def __str__(self):
+        return f'{self.group_name}'
+
+
+class Membership(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    date_joined = models.DateField()
+    invite_reason = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f'{self.date_joined}'
